@@ -1,0 +1,18 @@
+doctype 5
+block content
+	h1= title
+	
+	form#formAddStudent(name="addfeestrack",method="post",action="/addfeestrack")
+		input#inputStudentName(type="text", placeholder="studentname", name="studentname")
+		input#inputEnrollmentDate(type="text", placeholder="enrollmentdate",name="enrollmentdate")
+
+
+		input(type="checkbox", name="P")
+		|Fees Paid
+		input(type="checkbox", name="FPn")
+		|Fees Pending
+
+		input#inputTotalHrs(type="number",placeholder="Total Hours",name="totalhrs")
+		input#inputHrsAttended(type="number",placeholder="Hours Attended",name="hrsattended")
+
+		button#btnSubmit(type="submit") Submit

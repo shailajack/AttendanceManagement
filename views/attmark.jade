@@ -1,0 +1,23 @@
+doctype 5
+block content
+	h1= title
+	
+	form#formAddStudent(name="addattendance",method="post",action="/addattendance")
+		input#inputStudentName(type="text", placeholder="studentname", name="studentname")
+
+		input#inputStudentEmail(type="text", placeholder="studentemail", name="studentemail")
+
+		input#inputStudentContactNum(type="number", placeholder="studentcontactnum", name="studentcontactnum")
+
+		script(type='text/javascript')
+			document.write('<p>Today: <span id="date-time">', new Date().toLocaleString(),'<\\/span>.<\/p>')
+			if (document.getElementById) onload = function () {
+				setInterval ("document.getElementById"('date-time').firstChild.data = new Date().toLocaleString()",50)
+			}
+
+		input(type="checkbox", name="P")
+		|Present
+		input(type="checkbox", name="A")
+		|Absent
+
+		button#btnSubmit(type="submit") Submit

@@ -1,0 +1,9 @@
+doctype 5
+
+block content
+	h1
+		Student List
+	ul
+		each student, i in studentlist
+			li
+				a(href="mailto:#{student.email}")= student.studentname

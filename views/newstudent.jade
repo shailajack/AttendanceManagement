@@ -1,0 +1,14 @@
+doctype 5
+block content
+	h1= title
+		form#formAddStudent(name="addstudent",method="post",action="/addstudent")
+			input#inputStudentName(type="text",placeholder="studentname",name="studentname")
+			input#inputStudentEmail(type="text",placeholder="studentemail", name="studentemail")
+			input#inputStudentContactNum(type="number",placeholder="studentcontactnum", name="studentcontactnum")
+			input#inputEnrollmentDate(type="text",placeholder="enrollmentdate", name="enrollmentdate")
+			select#HoursPerMnth 
+				option HrsPerMnth
+				option 12
+				option 24
+				option 36
+			button#btnSubmit(type="submit") Submit

@@ -1,14 +1,9 @@
 extends ../views/layout
 block content
-	p Mark Attendance
+	p Fees Track
 	
-	form#formAddStudent(name="addattendance",method="post",action="/addattendance")
-		input#inputStudentName(type="text", placeholder="studentname", name="studentname")
-
-		input#inputStudentEmail(type="text", placeholder="studentemail", name="studentemail")
-
-		input#inputStudentContactNum(type="number", placeholder="studentcontactnum", name="studentcontactnum")
-
+	form#formAddStudent(name="addfeestrack",method="post",action="/addfeestrack")
+		input#inputStudentName.findOne(db.FeesTrackDb.studentname)
 		link(rel='stylesheet', href='http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css')
 			script(src='http://code.jquery.com/jquery-1.9.1.js')
 				script(src='http://code.jquery.com/ui/1.10.3/jquery-ui.js')
@@ -18,11 +13,13 @@ block content
 					$("#datepicker").datepicker();
 					});
 		|Date:
-		input#datepicker(type='text')
-
+		input#datepicker(type='text')			
 		input(type="checkbox", name="P")
-		|Present
-		input(type="checkbox", name="A")
-		|Absent
+		|Fees Paid
+		input(type="checkbox", name="FPn")
+		|Fees Pending
+
+		input#inputTotalHrs(type="number",placeholder="Total Hours",name="totalhrs")
+		input#inputHrsAttended(type="number",placeholder="Hours Attended",name="hrsattended")
 
 		button#btnSubmit(type="submit") Submit

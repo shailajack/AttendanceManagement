@@ -11,12 +11,16 @@ var path = require('path');
 
 //New code
 var mongo = require('mongodb');
+var mongoose = require('mongoose');
 var monk = require('monk');
 var db = monk('localhost:27017/studatt');
+//var dbURL = 'mongodb://localhost/studatt';
+//var db = require('mongoose').connect(dbURL);
+
 
 
 var app = express();
-
+                           
 //Authenticator
 app.use(express.basicAuth(function(user, pass, callback){
 	var result = (user === 'testUser' && pass === 'testPass');
@@ -36,10 +40,17 @@ app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+
+
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+
 
 app.get('/', routes.index);
 app.get('/users', user.list);
@@ -50,7 +61,6 @@ app.get('/feestrack_page', routes.feestrack_page(db));
 app.get('/newstudent', routes.newstudent);
 app.get('/attmark', routes.attmark);
 app.get('/feestrack', routes.feestrack);
-
 
 
 app.get('/', function (req, res) {
@@ -78,9 +88,23 @@ app.get('feestrack', function(req, res) {
 });
 
 
+app.get('/', function(req, res) {
+	mgs(dbColl).find(function(data){
+		res.render('attendance_page.jade', {data: data});
+	});
+});
+
+
+
 app.post('/addstudent', routes.addstudent(db));
 app.post('/addattendance', routes.addattendance(db));
 app.post('/addfeestrack', routes.addfeestrack(db));
+
+
+//Student routes
+
+
+
 
 
 

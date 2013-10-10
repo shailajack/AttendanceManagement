@@ -1,13 +1,18 @@
 doctype 5 
 html
-	head
-		title #{title} | Students Attendance
-		link(rel='stylesheet', href='/stylesheets/style.css')
- 		body
-   		block content
-   		li(class=title=='StudentsAtt'?'active':undefined)
-   			a(href="/") StudentsAtt
-   		li(class=title=='studentlist'?'active':undefined)
-   			a(href="/studentlist") studentlist
-   		li(class=title=='newstudent'?'active':undefined)
-   			a(href="/newstudent") newstudent
+  head
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-responsive.css')
+
+      
+    script(type='text/javascript', src="/javascripts/uiHelper.js") 
+   
+    script(type='text/javascript', src="/bootstrap/js/bootstrap-tab.js")
+    meta(name="viewport", content="width=device-width,initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    script(type='text/css')
+      body {
+          background-color: #CCC;
+      }
+  body
+    block content

@@ -1,12 +1,19 @@
-doctype 5
+extends ../views/layout
 block content
-	h1= title
+	p Fees Track
 	
 	form#formAddStudent(name="addfeestrack",method="post",action="/addfeestrack")
-		input#inputStudentName(type="text", placeholder="studentname", name="studentname")
-		input#inputEnrollmentDate(type="text", placeholder="enrollmentdate",name="enrollmentdate")
-
-
+		input#inputStudentName.findOne(db.FeesTrackDb.studentname)
+		link(rel='stylesheet' type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css" media="all")
+			script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
+				script(src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js")
+				link(rel='stylesheet', href='/resources/demos/style.css')
+				script
+					$(function() {
+						$("#datepicker").datepicker();
+					});
+		|Date:
+		input#datepicker(type='text')			
 		input(type="checkbox", name="P")
 		|Fees Paid
 		input(type="checkbox", name="FPn")

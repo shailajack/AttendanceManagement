@@ -1,11 +1,20 @@
-doctype 5
+extends ../views/layout
 block content
-	h1= title
+	p Add New Student
 		form#formAddStudent(name="addstudent",method="post",action="/addstudent")
 			input#inputStudentName(type="text",placeholder="studentname",name="studentname")
 			input#inputStudentEmail(type="text",placeholder="studentemail", name="studentemail")
 			input#inputStudentContactNum(type="number",placeholder="studentcontactnum", name="studentcontactnum")
-			input#inputEnrollmentDate(type="text",placeholder="enrollmentdate", name="enrollmentdate")
+			link(rel='stylesheet', href='http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css')
+			script(src='http://code.jquery.com/jquery-1.9.1.js')
+				script(src='http://code.jquery.com/ui/1.10.3/jquery-ui.js')
+				link(rel='stylesheet', href='/resources/demos/style.css')
+				script
+					$(function() {
+					$("#datepicker").datepicker();
+					});
+			|Date:
+			input#datepicker(type='text')
 			select#HoursPerMnth 
 				option HrsPerMnth
 				option 12
